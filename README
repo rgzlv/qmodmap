@@ -1,0 +1,17 @@
+qmodmap makes keybindings for Quartz - the MacOS graphics layer which also
+deals with events, including for keybindings.
+
+The keybindings are read from a file, either one given as an argument or the
+default $HOME/.qmodmaprc file.
+Inside the file the key names can be given in the xmodmap syntax which comes
+from X11/keysymdef.h but without the "XK_" prefix.
+Unlike xmodmap though, there's no "keysym" or "keycode", everything is assumed
+to be a keysym, and you can have more than one keysym on the left of the "=",
+in that case it maps a key combination.
+Same goes for the right side, multiple keysyms can be given.
+Keysyms names are case-insensitive.
+Assigning the left side of a mapping to "voidsymbol" makes it ignored.
+Blank lines, blanks (space and tab) and comments follow by any number of blanks
+are ignored.
+Comments are introduced by a "!".
+For an example, see the rc/86box file.

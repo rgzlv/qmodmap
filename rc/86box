@@ -1,0 +1,32 @@
+! Example qmodmaprc file for the 86Box emulator.
+! 86Box can emulate old x86 machines.
+! The mappings shown here should get you a comfortable setup for 86Box, at least
+! on IBM PC DOS 1.0.
+
+! 86box maps:
+! command = windows
+! option = alt
+! f13 = printscreen
+! f14 = scrolllock
+! f15 = pause/break
+! super_l function delete = insert
+! super_l forwarddelete = insert (full size keyboards)
+! clear = numlock
+! https://86box.readthedocs.io/en/latest/hardware/keyboard.html
+
+!super_l b = f15
+super_l l = clear
+!super_l p = f13
+
+! PC DOS control keys
+control_l super_l b = control_l f15
+control_l super_l l = control_l clear
+control_l super_l p = control_l f13
+shift_l super_l p = shift_l f13
+
+! PC DOS editing keys
+super_l delete = kp_decimal
+super_l i = kp_0
+
+! Ignores the key
+!super_l q = voidsymbol
