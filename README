@@ -15,3 +15,10 @@ Blank lines, blanks (space and tab) and comments follow by any number of blanks
 are ignored.
 Comments are introduced by a "!".
 For an example, see the rc/86box file.
+
+Also, unlike xmodmap, qmodmap runs as a foreground daemon and will need the
+accessibility permission in settings for whatever program is used to run it,
+for example the Terminal.app, otherwise it'll fail to create the event tap
+needed to capture key events with the message
+"CGEventTapCreate: Operation not permitted"
+and prompt for the permission.
