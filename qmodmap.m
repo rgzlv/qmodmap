@@ -250,7 +250,8 @@ main(int argc, char **argv)
 	if (!path)
 		errx(1, "no filename argument and $HOME isn't set");
 	maps = kmaps_read(path);
-	free(path);
+	if (!argv[1])
+		free(path);
 	port = CGEventTapCreate(kCGHIDEventTap,
 	    kCGHeadInsertEventTap,
 	    kCGEventTapOptionDefault,
