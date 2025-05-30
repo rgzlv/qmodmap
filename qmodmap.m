@@ -213,32 +213,20 @@ kmaps_read(char *path)
 }
 
 char *
-kmaps_path(char *hint)
+kmaps_path(char *path)
 {
-#define PATHSZ 4096
-	char *path;
+	char *home, *homerc;
 
-	path = malloc(PATHSZ);
-	if (!path)
-		err(1, NULL);
-	if (hint) {
-		char dir[4096];
-
-		if (!getcwd(dir, sizeof(dir)))
-			err(1, "getcwd");
-		snprintf(path, PATHSZ, "%s/%s", dir, hint);
-	} else {
-		char *home;
-
-		home = getenv("HOME");
-		if (!home) {
-			free(path);
-			return NULL;
-		}
-		snprintf(path, PATHSZ, "%s/.qmodmaprc", home);
-	}
-	return path;
-#undef PATHSZ
+	if (path)
+		return path;
+	home = getenv("HOME");
+	if (!home)
+		return NULL;
+	homerc = malloc(4096);
+	if (!homerc)
+		return NULL;
+	snprintf(homerc, 4096, "%s/.qmodmaprc", home);
+	return homerc;
 }
 
 void
