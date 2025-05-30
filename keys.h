@@ -1,7 +1,7 @@
 #ifndef QMODMAP_KEYS_H
 #define QMODMAP_KEYS_H
 
-#import <Carbon/Carbon.h>
+#import <Carbon/Carbon.h> /* HIToolbox's Events.h is the one that has the keycodes */
 
 /* For parsing, not ignored but undefined temporarily */
 #define KC_UNDEF (-10)
